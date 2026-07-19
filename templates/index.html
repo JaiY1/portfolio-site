@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jai Yadav — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --card: #101018;
+    --card-hover: #12121c;
+    --border-section: #1c1c26;
+    --border-card: #21212e;
+    --border-btn: #2a2a38;
+    --text: #e6e6ef;
+    --text-dim: #8a8aa0;
+    --text-muted: #5a5a70;
+    --text-tagline: #c9c9dc;
+    --accent: oklch(0.55 0.2 290);
+    --accent-text: oklch(0.78 0.14 300);
+    --accent-text-hi: oklch(0.72 0.14 300);
+    --green: #4ade80;
+    --green-soft: rgba(74, 222, 128, 0.12);
+    --chip-bg: #171722;
+    --chip-text: #a8a8c0;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    container-type: inline-size;
+  }
+
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+  a { color: inherit; }
+
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+  /* Header */
+  header.masthead {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(10, 10, 15, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-section);
+  }
+
+  .masthead-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding: 14px 32px;
+  }
+
+  .wordmark {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .nav-link:hover, .nav-link:focus-visible { color: #fff; }
+
+  .btn-touch {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #fff;
+    text-decoration: none;
+    background: var(--accent);
+    padding: 8px 14px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px -10px oklch(0.55 0.2 290 / 0.9);
+  }
+
+  .status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px;
+    color: var(--green);
+    white-space: nowrap;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px 1px var(--green);
+    flex-shrink: 0;
+  }
+
+  /* Hero */
+  .hero {
+    background: radial-gradient(100% 70% at 78% 0%, oklch(0.55 0.2 290 / 0.20), transparent 62%), var(--bg);
+    border-bottom: 1px solid var(--border-section);
+  }
+
+  .hero-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px 48px;
+    padding: 56px 32px 44px;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent-text);
+    margin: 0 0 12px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 52ch;
+    margin: 0;
+  }
+
+  .hero-stats {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12.5px;
+    line-height: 2;
+    color: var(--text-dim);
+    text-align: right;
+  }
+
+  .hero-stats .label { color: var(--text-muted); }
+
+  /* Section shared */
+  .section { padding: 72px 0; border-top: 1px solid var(--border-section); }
+  .section:first-of-type { border-top: none; }
+
+  .section-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+  }
+
+  /* Projects */
+  #work.section { padding-top: 72px; }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 36px;
+  }
+
+  .section-head h2 {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .section-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  .cards { display: flex; flex-direction: column; gap: 20px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border-card);
+    border-radius: 16px;
+    padding: 30px 30px 26px;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .card:hover { border-color: oklch(0.55 0.2 290 / 0.55); background: var(--card-hover); }
+
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .card-title-row { display: flex; align-items: baseline; gap: 12px; }
+
+  .card-index {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    color: var(--accent-text-hi);
+  }
+
+  .card-title { font-size: 24px; font-weight: 600; margin: 0; }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    background: var(--green-soft);
+    color: var(--green);
+    padding: 5px 11px 5px 9px;
+    border-radius: 9999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .card-tagline {
+    font-size: 16.5px;
+    color: var(--text-tagline);
+    max-width: 52ch;
+    margin: 0 0 12px;
+  }
+
+  .card-desc {
+    font-size: 14.5px;
+    color: var(--text-dim);
+    max-width: 66ch;
+    line-height: 1.65;
+    margin: 0 0 20px;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+
+  .chip {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-btn);
+    background: var(--chip-bg);
+    color: var(--chip-text);
+  }
+
+  .card-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .btn {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 9px;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  }
+
+  .btn-outline {
+    border: 1px solid var(--border-btn);
+    color: var(--text);
+  }
+  .btn-outline:hover, .btn-outline:focus-visible {
+    border-color: var(--accent-text-hi);
+    color: var(--accent-text-hi);
+  }
+
+  .btn-solid {
+    border: 1px solid transparent;
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 8px 20px -10px oklch(0.55 0.2 290 / 0.9);
+  }
+  .btn-solid:hover, .btn-solid:focus-visible { transform: translateY(-1px); }
+
+  /* About / Skills — two-col grid rows */
+  .row-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px 48px;
+  }
+
+  #about.section { margin-top: 64px; }
+  #about .row-grid { align-items: start; }
+
+  .about-lead {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0 0 24px;
+  }
+
+  .about-body {
+    font-size: 16px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .skills-section .row-grid { gap: 24px 48px; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 36px 32px;
+  }
+
+  .skill-group-name {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--accent-text);
+    margin: 0 0 14px;
+  }
+
+  .skill-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    font-size: 15px;
+    color: #c2c2d4;
+  }
+
+  /* Contact */
+  #contact.section { padding: 92px 0 100px; }
+
+  .contact-headline {
+    font-weight: 600;
+    font-size: clamp(36px, 5.5vw, 62px);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    max-width: 14ch;
+    margin: 16px 0 32px;
+    background: linear-gradient(180deg, #ffffff, #a7a7c4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .btn-copy { border: none; cursor: pointer; }
+
+  /* Footer */
+  footer.site-footer {
+    padding: 28px 0 56px;
+    border-top: 1px solid var(--border-section);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+
+  footer.site-footer a { color: var(--text-dim); text-decoration: none; }
+  footer.site-footer a:hover { color: #fff; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card, .btn, .status-dot { transition: none; }
+  }
+
+  /* Responsive — single breakpoint at 760px */
+  @media (max-width: 760px) {
+    .container { padding: 0 20px; }
+    .masthead-row { padding: 12px 20px; }
+    .hero-row { padding: 72px 20px 56px; }
+    .card { padding: 22px 20px 20px; }
+    .row-grid { grid-template-columns: 1fr; gap: 8px 0; }
+    .section-label { margin-bottom: 14px; }
+    #about.section { margin-top: 8px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="masthead-row">
+      <a class="wordmark mono" href="#">JAI YADAV</a>
+      <div class="nav-group">
+        <a class="nav-link mono" href="#work">Projects</a>
+        <a class="nav-link mono" href="#about">About</a>
+        <a class="nav-link mono" href="{{ site.github_url }}" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-touch" href="mailto:{{ site.email }}">Get in touch ↗</a>
+        <span class="status-indicator"><span class="status-dot"></span>Open to work</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-row">
+      <div>
+        <p class="hero-eyebrow mono">Software Engineer · Full-Stack &amp; AI</p>
+        <p class="hero-sub">Three full-stack apps, each live in production — not another localhost demo.</p>
+      </div>
+      <div class="hero-stats">
+        <div><span class="label">LOCATION —</span> Remote</div>
+        <div><span class="label">FOCUS —</span> Python · AI</div>
+        <div><span class="label">SHIPPED —</span> 3 live apps</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <section class="section" id="work">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <span class="section-tag">03 / SHIPPED</span>
+      </div>
+
+      <div class="cards">
+        {% for p in projects %}
+        <article class="card">
+          <div class="card-head">
+            <div class="card-title-row">
+              <span class="card-index mono">{{ p.index }}</span>
+              <h3 class="card-title">{{ p.name }}</h3>
+            </div>
+            <span class="status-pill"><span class="status-dot" style="width:6px;height:6px;"></span>{{ p.status_label }}</span>
+          </div>
+          <p class="card-tagline">{{ p.tagline }}</p>
+          <p class="card-desc">{{ p.description }}</p>
+          <div class="chips">
+            {% for tech in p.stack %}<span class="chip">{{ tech }}</span>{% endfor %}
+          </div>
+          <div class="card-actions">
+            <a class="btn btn-outline" href="{{ p.repo_url }}" target="_blank" rel="noopener">View Repo ↗</a>
+            <a class="btn btn-solid" href="{{ p.live_url }}" target="_blank" rel="noopener">Open App ↗</a>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="row-grid">
+        <span class="section-label">About</span>
+        <div>
+          <p class="about-lead">I like the part of building where an idea stops being a notebook cell and becomes a URL someone else can open.</p>
+          <p class="about-body">I work end-to-end — data plumbing, backend logic, the model calls, the deploy config — and I lean on AI where it earns its place: summarizing, tagging, reasoning over messy inputs. Each project here was designed, built, and deployed solo, and each one is running in production right now on Railway.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills-section">
+      <div class="row-grid">
+        <span class="section-label">Stack</span>
+        <div class="skills-grid">
+          {% for group in skills %}
+          <div>
+            <p class="skill-group-name mono">{{ group.group }}</p>
+            <ul class="skill-list">
+              {% for item in group.skills %}<li>{{ item }}</li>{% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <span class="section-label">Contact</span>
+      <h2 class="contact-headline">Have something worth building? Let's talk.</h2>
+      <div class="contact-actions">
+        <button class="btn btn-solid btn-copy mono" id="copyEmailBtn" type="button" data-email="{{ site.email }}" data-default-label="Copy email">Copy email</button>
+        <a class="btn btn-outline mono" href="{{ site.github_url }}" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-outline mono" href="{{ site.linkedin_url }}" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>BUILT SOLO · DEPLOYED ON RAILWAY</span>
+      <a href="{{ site.github_url }}" target="_blank" rel="noopener">github.com/JaiY1 ↗</a>
+    </footer>
+
+  </div>
+
+  <script>
+    const copyBtn = document.getElementById("copyEmailBtn");
+    if (copyBtn) {
+      let resetTimer = null;
+      copyBtn.addEventListener("click", () => {
+        const email = copyBtn.dataset.email;
+        navigator.clipboard.writeText(email).then(() => {
+          copyBtn.textContent = "Copied ✓ " + email;
+          clearTimeout(resetTimer);
+          resetTimer = setTimeout(() => {
+            copyBtn.textContent = copyBtn.dataset.defaultLabel;
+          }, 1800);
+        }).catch((err) => {
+          console.error("Clipboard write failed:", err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
