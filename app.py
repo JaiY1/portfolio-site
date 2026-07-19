@@ -25,7 +25,7 @@ PROJECTS = [
         ),
         "stack": ["Flask", "SQLite", "ESPN API", "SharpAPI", "Railway"],
         "repo_url": "https://github.com/JaiY1/Nba-player-props-tool",
-        "live_url": "https://web-production-5d281.up.railway.app",
+        "live_url": "https://nba-player-props-tool.railway.app",
     },
     {
         "index": "02",
@@ -40,7 +40,7 @@ PROJECTS = [
         ),
         "stack": ["Flask", "Claude API", "Scheduler", "SQLite"],
         "repo_url": "https://github.com/JaiY1/News-Aggregator",
-        "live_url": "https://web-production-06c1b.up.railway.app",
+        "live_url": "https://new-aggregator.railway.app",
     },
     {
         "index": "03",
@@ -58,7 +58,7 @@ PROJECTS = [
         ),
         "stack": ["Flask", "Claude API", "Gemini", "RAG", "ChromaDB", "Serper"],
         "repo_url": "https://github.com/JaiY1/closet-manager",
-        "live_url": "https://web-production-85fd7.up.railway.app",
+        "live_url": "https://closet-manager.up.railway.app",
     },
 ]
 
