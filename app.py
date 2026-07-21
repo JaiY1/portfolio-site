@@ -25,7 +25,7 @@ PROJECTS = [
         ),
         "stack": ["Flask", "SQLite", "ESPN API", "SharpAPI", "Railway"],
         "repo_url": "https://github.com/JaiY1/Nba-player-props-tool",
-        "live_url": "https://nba-player-props-tool.railway.app",
+        "live_url": "https://nba-tool.up.railway.app",
     },
     {
         "index": "02",
@@ -40,7 +40,7 @@ PROJECTS = [
         ),
         "stack": ["Flask", "Claude API", "Scheduler", "SQLite"],
         "repo_url": "https://github.com/JaiY1/News-Aggregator",
-        "live_url": "https://new-aggregator.railway.app",
+        "live_url": "https://news-aggregator-1.up.railway.app",
     },
     {
         "index": "03",
