@@ -38,7 +38,7 @@ PROJECTS = [
             "scheduler keeps digests current so there's always something fresh waiting "
             "rather than a manual refresh."
         ),
-        "stack": ["Flask", "Claude API", "Scheduler", "SQLite"],
+        "stack": ["Go", "Claude API", "Scheduler", "SQLite"],
         "repo_url": "https://github.com/JaiY1/News-Aggregator",
         "live_url": "https://news-aggregator-1.up.railway.app",
     },
